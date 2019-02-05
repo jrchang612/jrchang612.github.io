@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <style>
+    body {
+    }
+    h1  {
+    }
+    p  {
+    }
+    #display {
+      background-color: white;
+      align: center;
+      border-radius: 4px;
+      padding-right: 10px;
+    }
+    #basic {
+      background-color: maroon;
+      text-align: center;
+      border-radius: 4px;
+      padding-right: 10px;    
+      float: left;
+    }
+    #shape {
+      background-color: #DB9A2B;
+      text-align: center;
+      border-radius: 4px;
+      padding-right: 10px; 
+    }
+    #margin {
+      background-color: #E9CE60;
+      text-align: center;
+      border-radius: 4px;
+      padding-right: 10px; 
+      float: left;
+    }
+    #color {
+      background-color: #4E842F;
+      text-align: center;
+      border-radius: 4px;
+      padding-right: 10px; 
+      float: left;
+    }
+    #character {
+      background-color: #2BA6DB;
+      text-align: center;
+      border-radius: 4px;
+      padding-right: 10px; 
+    }
+    #body {
+      background-color: #504CD4;
+      text-align: center;
+      border-radius: 4px;
+      padding-right: 10px; 
+      float: left;
+    }
+    #bodypart{
+      background-color: #7C42C8;
+      text-align: center;
+      border-radius: 4px;
+      padding-right: 10px;
+      float: left;
+    }
+    #modifiers {
+      background-color: #C1BCC8;
+      text-align: center;
+      border-radius: 4px;
+      padding-right: 10px; 
+    }
+    #clear {
+      background-color: pink;
+      text-align: center;
+      border-radius: 4px;
+      padding-right: 10px;
+    }
+   </style>
+   </head>
+   <body>
+   	  <h1>Cutaneous Findings Generator</h1>
+      <form name="CFgenerator">
+         <table id =”display”>
+            <tr>
+               <td colspan="10">
+                  <textarea rows="4" cols="100" name="display" id="display"></textarea>
+               </td>
+            </tr>
+         </table>
+         <table id ="basic">
+            <tr>
+               <td><input type="button" name="is" value="There is " onclick="CFgenerator.display.value += 'There is '"></td>
+               <td><input type="button" name="are" value="There are " onclick="CFgenerator.display.value += 'There are '"></td>
+            </tr>
+            <tr>
+               <td><input type="button" name="one" value="one" onclick="CFgenerator.display.value += 'one '"></td>
+               <td><input type="button" name="two" value="two" onclick="CFgenerator.display.value += 'two '"></td>
+               <td><input type="button" name="three" value="three" onclick="CFgenerator.display.value += 'three '"></td>
+            </tr>
+            <tr>
+               <td><input type="button" name="several" value="several" onclick="CFgenerator.display.value += 'several '"></td>
+               <td><input type="button" name="about 10" value="about 10" onclick="CFgenerator.display.value += 'about 10 '"></td>
+               <td><input type="button" name="numerous" value="numerous" onclick="CFgenerator.display.value += 'numerous '"></td>
+            </tr>
+            <tr>
+               <td><input type="button" name="3mm" value="3mm" onclick="CFgenerator.display.value += '3mm, '"></td>
+               <td><input type="button" name="1cm" value="1cm" onclick="CFgenerator.display.value += '1cm, '"></td>
+               <td><input type="button" name="0.5~1cm" value="0.5~1cm" onclick="CFgenerator.display.value += '0.5~1cm, '"></td>
+               <td><input type="button" name="2cm x 3cm" value="2cm x 3cm" onclick="CFgenerator.display.value += '2cm x 3cm, '"></td>
+            </tr>
+            <tr>
+               <td><input type="button" name="mm" value="mm" onclick="CFgenerator.display.value += 'mm, '"></td>
+               <td><input type="button" name="cm" value="cm" onclick="CFgenerator.display.value += 'cm, '"></td>
+               <td><input type="button" name="~cm" value="~cm" onclick="CFgenerator.display.value += '~cm, '"></td>
+               <td><input type="button" name="cm x cm" value="cm x cm" onclick="CFgenerator.display.value += 'cm x cm, '"></td>
+            </tr>
+         </table>
+         <table id="shape">
+            <tr>
+               <td><input type="button" name="round" value="round" onclick="CFgenerator.display.value += 'round, '"></td>
+               <td><input type="button" name="discoid" value="discoid" onclick="CFgenerator.display.value += 'discoid, '"></td>
+               <td><input type="button" name="nummular" value="nummular" onclick="CFgenerator.display.value += 'nummular, '"></td>
+               <td><input type="button" name="annular" value="annular" onclick="CFgenerator.display.value += 'annular, '"></td>
+            </tr>
+            <tr>
+               <td><input type="button" name="circinate" value="circinate" onclick="CFgenerator.display.value += 'circinate, '"></td>
+               <td><input type="button" name="digitate" value="digitate" onclick="CFgenerator.display.value += 'digitate, '"></td>
+               <td><input type="button" name="arcuate" value="arcuate" onclick="CFgenerator.display.value += 'arcuate, '"></td>
+               <td><input type="button" name="arciform" value="arciform" onclick="CFgenerator.display.value += 'arciform, '"></td>   
+            </tr>
+            <tr>
+               <td><input type="button" name="herpetiform" value="herpetiform" onclick="CFgenerator.display.value += 'herpetiform, '"></td>
+               <td><input type="button" name="linear" value="linear" onclick="CFgenerator.display.value += 'linear, '"></td>
+               <td><input type="button" name="figurate" value="figurate" onclick="CFgenerator.display.value += 'figurate, '"></td>
+               <td><input type="button" name="guttate" value="guttate" onclick="CFgenerator.display.value += 'guttate, '"></td>
+            </tr>
+            <tr>
+               <td><input type="button" name="gyrate" value="gyrate" onclick="CFgenerator.display.value += 'gyrate, '"></td>
+               <td><input type="button" name="reticular" value="reticular" onclick="CFgenerator.display.value += 'reticular, '"></td>
+               <td><input type="button" name="serpiginous" value="serpiginous" onclick="CFgenerator.display.value += 'serpiginous, '"></td>
+               <td><input type="button" name="stellate" value="stellate" onclick="CFgenerator.display.value += 'stellate, '"></td>
+            </tr>
+            <tr>
+               <td><input type="button" name="target" value="target" onclick="CFgenerator.display.value += 'target, '"></td>
+               <td><input type="button" name="targetoid" value="targetoid" onclick="CFgenerator.display.value += 'targetoid, '"></td>
+               <td><input type="button" name="verrucous" value="verrucous" onclick="CFgenerator.display.value += 'verrucous, '"></td>
+               <td><input type="button" name="asymmetric" value="asymmetric" onclick="CFgenerator.display.value += 'asymmetric, '"></td>
+            </table>
+            <table id="margin">
+            <tr>
+               <td><input type="button" name="well-defined" value="well-defined" onclick="CFgenerator.display.value += 'well-defined, '"></td>
+               <td><input type="button" name="ill-defined" value="ill-defined" onclick="CFgenerator.display.value += 'ill-defined, '"></td>
+            </tr>
+            <tr>
+               <td><input type="button" name="faint" value="faint" onclick="CFgenerator.display.value += 'faint, '"></td>
+               <td><input type="button" name="blurred" value="blurred" onclick="CFgenerator.display.value += 'blurred, '"></td>
+            </tr>
+            <tr>
+               <td><input type="button" name="rolled margin" value="rolled margin" onclick="CFgenerator.display.value += 'rolled margin, '"></td>
+               <td><input type="button" name="bullous margin" value="bullous margin" onclick="CFgenerator.display.value += 'bullous margin, '"></td>
+            </tr>
+            <tr>
+               <td><input type="button" name="swollen margin" value="swollen margin" onclick="CFgenerator.display.value += 'swollen margin, '"></td>
+            </tr>
+            <tr>
+               <td><input type="button" name="with irregular border" value="with irregular border" onclick="CFgenerator.display.value += 'with irregular border, '"></td>
+            </tr>
+         </table>
+         <table id="color">
+            <tr>
+               <td><input type="button" name="red" value="red" onclick="CFgenerator.display.value += 'red '"></td>
+               <td><input type="button" name="pink" value="pink" onclick="CFgenerator.display.value += 'pink '"></td>
+               <td><input type="button" name="erythematous" value="erythematous" onclick="CFgenerator.display.value += 'erythematous '"></td>
+               <td><input type="button" name="cherry-red" value="cherry-red" onclick="CFgenerator.display.value += 'cherry-red '"></td>
+               <td><input type="button" name="port-wine" value="port-wine" onclick="CFgenerator.display.value += 'port-wine '"></td>
+            </tr>
+            <tr>
+               <td><input type="button" name="salmon-pink" value="salmon-pink" onclick="CFgenerator.display.value += 'salmon-pink '"></td>
+               <td><input type="button" name="violaceous" value="violaceous" onclick="CFgenerator.display.value += 'violaceous '"></td>
+               <td><input type="button" name="purpurish" value="purpurish" onclick="CFgenerator.display.value += 'purpurish '"></td>
+               <td><input type="button" name="blanchable" value="blanchable" onclick="CFgenerator.display.value += 'blanchable '"></td>
+               <td><input type="button" name="non-blanchable" value="non-blanchable" onclick="CFgenerator.display.value += 'non-blanchable '"></td>
+            </tr>
+            <tr>
+               <td><input type="button" name="bluish-gray" value="bluish-gray" onclick="CFgenerator.display.value += 'bluish-gray '"></td>
+               <td><input type="button" name="grayish" value="grayish" onclick="CFgenerator.display.value += 'grayish '"></td>
+               <td><input type="button" name="black" value="black" onclick="CFgenerator.display.value += 'black '"></td>
+               <td><input type="button" name="brown" value="brown" onclick="CFgenerator.display.value += 'brown '"></td>
+               <td><input type="button" name="hyperpigmented" value="hyperpigmented" onclick="CFgenerator.display.value += 'hyperpigmented '"></td>
+            </tr>
+            <tr>
+               <td><input type="button" name="variably-pigmented" value="variably-pigmented" onclick="CFgenerator.display.value += 'variably-pigmented '"></td>
+               <td><input type="button" name="off-white" value="off-white" onclick="CFgenerator.display.value += 'off-white '"></td>
+               <td><input type="button" name="snow-white" value="snow-white" onclick="CFgenerator.display.value += 'snow-white '"></td>
+               <td><input type="button" name="porcelain-white" value="porcelain-white" onclick="CFgenerator.display.value += 'porcelain-white '"></td>
+               <td><input type="button" name="hypopigmented" value="hypopigmented" onclick="CFgenerator.display.value += 'hypopigmented '"></td>
+            </tr>
+            <tr>
+               <td><input type="button" name="skin-colored" value="skin-colored" onclick="CFgenerator.display.value += 'skin-colored '"></td>
+               <td><input type="button" name="transparent" value="transparent" onclick="CFgenerator.display.value += 'transparent '"></td>
+            </tr>
+         </table>
+         <table id="character">
+            <tr>
+               <td><input type="button" name="soft" value="soft" onclick="CFgenerator.display.value += 'soft '"></td>
+               <td><input type="button" name="firm" value="firm" onclick="CFgenerator.display.value += 'firm '"></td>
+               <td><input type="button" name="elastic" value="elastic" onclick="CFgenerator.display.value += 'elastic '"></td>
+               <td><input type="button" name="stony" value="stony" onclick="CFgenerator.display.value += 'stony '"></td>
+               <td><input type="button" name="fragile" value="fragile" onclick="CFgenerator.display.value += 'fragile '"></td>
+               <td><input type="button" name="fluctuant" value="fluctuant" onclick="CFgenerator.display.value += 'fluctuant '"></td>
+            <tr>
+            </tr>
+               <td><input type="button" name="flaccid" value="flaccid" onclick="CFgenerator.display.value += 'flaccid '"></td>
+               <td><input type="button" name="tense" value="tense" onclick="CFgenerator.display.value += 'tense '"></td>
+               <td><input type="button" name="excoriated" value="excoriated" onclick="CFgenerator.display.value += 'excoriated '"></td>
+               <td><input type="button" name="scaly" value="scaly" onclick="CFgenerator.display.value += 'scaly '"></td>
+               <td><input type="button" name="with fine scales" value="with fine scales" onclick="CFgenerator.display.value += 'with fine scales '"></td>
+               <td><input type="button" name="with peripheral scales" value="with peripheral scales" onclick="CFgenerator.display.value += 'with peripheral scales '"></td>   
+            </tr>
+            <tr>
+               <td><input type="button" name="macerated" value="macerated" onclick="CFgenerator.display.value += 'macerated '"></td>
+               
+               <td><input type="button" name="ulcerated" value="ulcerated" onclick="CFgenerator.display.value += 'ulcerated '"></td>
+               <td><input type="button" name="fissurized" value="fissurized" onclick="CFgenerator.display.value += 'fissurized '"></td>
+               <td><input type="button" name="lichenified" value="lichenified" onclick="CFgenerator.display.value += 'lichenified '"></td>
+               <td><input type="button" name="crusted" value="crusted" onclick="CFgenerator.display.value += 'crusted '"></td>
+               <td><input type="button" name="with honey-colored crusts" value="with honey-colored crusts" onclick="CFgenerator.display.value += 'with honey-colored crusts '"></td>
+            </tr>
+            <tr>
+               <td><input type="button" name="indurative" value="indurative" onclick="CFgenerator.display.value += 'indurative '"></td>
+               <td><input type="button" name="infiltrative" value="infiltrative" onclick="CFgenerator.display.value += 'infiltrative '"></td>
+               <td><input type="button" name="atrophic" value="atrophic" onclick="CFgenerator.display.value += 'atrophic '"></td>
+               <td><input type="button" name="shiny" value="shiny" onclick="CFgenerator.display.value += 'shiny '"></td>
+               <td><input type="button" name="oily" value="oily" onclick="CFgenerator.display.value += 'oily '"></td>
+               <td><input type="button" name="with telangiectasia" value="with telangiectasia" onclick="CFgenerator.display.value += 'with telangiectasia '"></td>   
+            </tr>
+            <tr>
+               <td><input type="button" name="umbilicated" value="umbilicated" onclick="CFgenerator.display.value += 'umbilicated '"></td>
+               <td><input type="button" name="rough" value="rough" onclick="CFgenerator.display.value += 'rough '"></td>
+               <td><input type="button" name="smooth" value="smooth" onclick="CFgenerator.display.value += 'smooth '"></td>
+               <td><input type="button" name="polypoid" value="polypoid" onclick="CFgenerator.display.value += 'polypoid '"></td>
+            </tr>
+         </table>
+         <table id="body">
+            <tr>
+               <td><input type="button" name="macule" value="macule" onclick="CFgenerator.display.value += 'macule '"></td>
+               <td><input type="button" name="patch" value="patch" onclick="CFgenerator.display.value += 'patch '"></td>
+               <td><input type="button" name="wheal" value="wheal" onclick="CFgenerator.display.value += 'wheal '"></td>
+               <td><input type="button" name="subcutaneous nodule" value="subcutaneous nodule" onclick="CFgenerator.display.value += 'subcutaneous nodule '"></td>
+            </tr>
+            <tr>
+               <td><input type="button" name="papule" value="papule" onclick="CFgenerator.display.value += 'papule '"></td>
+               <td><input type="button" name="nodule" value="nodule" onclick="CFgenerator.display.value += 'nodule '"></td>
+               <td><input type="button" name="plaque" value="plaque" onclick="CFgenerator.display.value += 'plaque '"></td>
+               <td><input type="button" name="subcutaneous mass" value="subcutaneous mass" onclick="CFgenerator.display.value += 'subcutaneous mass '"></td>
+            </tr>
+               <td><input type="button" name="petechiae" value="petechiae" onclick="CFgenerator.display.value += 'petechiae '"></td>
+               <td><input type="button" name="purpura" value="purpura" onclick="CFgenerator.display.value += 'purpura '"></td>
+               <td><input type="button" name="ecchymosis" value="ecchymosis" onclick="CFgenerator.display.value += 'ecchymosis '"></td>
+               <td><input type="button" name="deep-seated mass" value="deep-seated mass" onclick="CFgenerator.display.value += 'deep-seated mass '"></td>
+            </tr>
+            <tr>
+               <td><input type="button" name="pustule" value="pustule" onclick="CFgenerator.display.value += 'pustule '"></td>
+               <td><input type="button" name="abscess" value="abscess" onclick="CFgenerator.display.value += 'abscess '"></td>
+               <td><input type="button" name="vesicle" value="vesicle" onclick="CFgenerator.display.value += 'vesicle '"></td>
+               <td><input type="button" name="grouped vesicles" value="grouped vesicles" onclick="CFgenerator.display.value += 'grouped vesicles '"></td>
+            </tr>
+            <tr>
+               <td><input type="button" name="bulla" value="bulla" onclick="CFgenerator.display.value += 'bulla '"></td>
+               <td><input type="button" name="erosion" value="erosion" onclick="CFgenerator.display.value += 'erosion '"></td>
+               <td><input type="button" name="ulcer" value="ulcer" onclick="CFgenerator.display.value += 'ulcer '"></td>
+               <td><input type="button" name="grouped" value="grouped" onclick="CFgenerator.display.value += 'grouped '"></td>
+            </tr>
+         </table>
+         <table id="bodypart">
+            <tr>
+               <td><input type="button" name="at" value="at" onclick="CFgenerator.display.value += 'at '"></td>
+               <td><input type="button" name="on" value="on" onclick="CFgenerator.display.value += 'on '"></td>
+               <td><input type="button" name="over" value="over" onclick="CFgenerator.display.value += 'over '"></td>
+               <td><input type="button" name="in" value="in" onclick="CFgenerator.display.value += 'in '"></td>
+               <td><input type="button" name="of" value="of" onclick="CFgenerator.display.value += 'of '"></td>
+            </tr>
+            <tr>
+               <td><input type="button" name="his" value="his" onclick="CFgenerator.display.value += 'his '"></td>
+               <td><input type="button" name="her" value="her" onclick="CFgenerator.display.value += 'her '"></td>
+               <td><input type="button" name="left" value="left" onclick="CFgenerator.display.value += 'left '"></td>
+               <td><input type="button" name="right" value="right" onclick="CFgenerator.display.value += 'right '"></td>
+               <td><input type="button" name="both" value="both" onclick="CFgenerator.display.value += 'both '"></td>
+               <td><input type="button" name="bilateral" value="bilateral" onclick="CFgenerator.display.value += 'bilateral '"></td>
+            </tr>
+            <tr>
+               <td><input type="button" name="face" value="face" onclick="CFgenerator.display.value += 'face.'"></td>
+               <td><input type="button" name="nape" value="nape" onclick="CFgenerator.display.value += 'nape.'"></td>
+               <td><input type="button" name="armpits" value="armpits" onclick="CFgenerator.display.value += 'armpits.'"></td>
+               <td><input type="button" name="thigh" value="thigh" onclick="CFgenerator.display.value += 'thigh.'"></td>
+               <td><input type="button" name="scrotum" value="scrotum" onclick="CFgenerator.display.value += 'scrotum.'"></td>
+               <td><input type="button" name="labia majora" value="labia majora" onclick="CFgenerator.display.value += 'labia majora.'"></td>
+               <td><input type="button" name="frontal area" value="frontal area" onclick="CFgenerator.display.value += 'frontal area.'"></td>
+            </tr>
+            <tr>
+               <td><input type="button" name="chin" value="chin" onclick="CFgenerator.display.value += 'chin.'"></td>
+               <td><input type="button" name="chest" value="chest" onclick="CFgenerator.display.value += 'chest.'"></td>
+               <td><input type="button" name="arms" value="arms" onclick="CFgenerator.display.value += 'arms.'"></td>
+               <td><input type="button" name="shins" value="shins" onclick="CFgenerator.display.value += 'shins.'"></td>
+               <td><input type="button" name="penis" value="penis" onclick="CFgenerator.display.value += 'penis.'"></td>
+               <td><input type="button" name="labia minora" value="labia minora" onclick="CFgenerator.display.value += 'labia minora.'"></td>
+               <td><input type="button" name="parietal area" value="parietal area" onclick="CFgenerator.display.value += 'parietal area.'"></td>
+            </tr>
+            <tr>
+               <td><input type="button" name="cheeks" value="cheeks" onclick="CFgenerator.display.value += 'cheeks.'"></td>
+               <td><input type="button" name="abdomen" value="abdomen" onclick="CFgenerator.display.value += 'abdomen.'"></td>
+               <td><input type="button" name="forearms" value="forearms" onclick="CFgenerator.display.value += 'forearms.'"></td>
+               <td><input type="button" name="calf" value="calf" onclick="CFgenerator.display.value += 'calf.'"></td>
+               <td><input type="button" name="glans penis" value="glans penis" onclick="CFgenerator.display.value += 'glans penis.'"></td>
+               <td><input type="button" name="palms" value="palms" onclick="CFgenerator.display.value += 'palms.'"></td>
+               <td><input type="button" name="temporal area" value="temporal area" onclick="CFgenerator.display.value += 'temporal area.'"></td>
+            </tr>
+            <tr>
+               <td><input type="button" name="neck" value="neck" onclick="CFgenerator.display.value += 'neck.'"></td>
+               <td><input type="button" name="perineum" value="perineum" onclick="CFgenerator.display.value += 'perineum.'"></td>
+               <td><input type="button" name="buttocks" value="buttocks" onclick="CFgenerator.display.value += 'buttocks.'"></td>
+               <td><input type="button" name="dorsal feet" value="dorsal feet" onclick="CFgenerator.display.value += 'dorsal feet.'"></td>
+               <td><input type="button" name="foreskin" value="foreskin" onclick="CFgenerator.display.value += 'foreskin.'"></td>
+               <td><input type="button" name="soles" value="soles" onclick="CFgenerator.display.value += 'soles.'"></td>
+               <td><input type="button" name="occipital area" value="occipital area" onclick="CFgenerator.display.value += 'occipital area.'"></td>
+            </tr>
+         </table>
+                  <table id="modifiers">
+            <tr>
+               <td><input type="button" name="with central scar" value="with central scar" onclick="CFgenerator.display.value += 'with central scar '"></td>
+               <td><input type="button" name="at sun exposure area" value="at sun exposure area" onclick="CFgenerator.display.value += 'at sun exposure area '"></td>
+               <td><input type="button" name="with symmetrical distribution" value="with symmetrical distribution" onclick="CFgenerator.display.value += 'with symmetrical distribution '"></td>
+               <td><input type="button" name="on palms and soles" value="on palms and soles" onclick="CFgenerator.display.value += 'on palms and soles '"></td>
+               <td><input type="button" name="with Hutchinson sign(+)" value="with Hutchinson sign(+)" onclick="CFgenerator.display.value += 'with Hutchinson sign(+) '"></td>
+            </tr>
+            <tr>
+               <td><input type="button" name="with Wickham striae" value="with Wickham striae" onclick="CFgenerator.display.value += 'with Wickham striae '"></td>
+               <td><input type="button" name="at seborrheic area" value="at seborrheic area" onclick="CFgenerator.display.value += 'at seborrheic area '"></td>
+               <td><input type="button" name="with dermatomal distribution" value="with dermatomal distribution" onclick="CFgenerator.display.value += 'with dermatomal distribution '"></td>
+               <td><input type="button" name="sparing palms and soles" value="sparing palms and soles" onclick="CFgenerator.display.value += 'sparing palms and soles '"></td>
+               <td><input type="button" name="with Hutchinson sign(-)" value="with Hutchinson sign(-)" onclick="CFgenerator.display.value += 'with Hutchinson sign(-) '"></td>
+            </tr>
+            <tr>
+               <td><input type="button" name="with atrophic scar" value="with atrophic scar" onclick="CFgenerator.display.value += 'with atrophic scar '"></td>
+               <td><input type="button" name="at intertriginous area" value="at intertriginous area" onclick="CFgenerator.display.value += 'at intertriginous area '"></td>
+               <td><input type="button" name="along Blaschko lines" value="along Blaschko lines" onclick="CFgenerator.display.value += 'along Blaschko lines '"></td>
+               <td><input type="button" name="around umbilicus" value="around umbilicus" onclick="CFgenerator.display.value += 'around umbilicus '"></td>
+               <td><input type="button" name="at periungual areas" value="at periungual areas" onclick="CFgenerator.display.value += 'at periungual areas '"></td>
+            </tr>
+            <tr>
+               <td><input type="button" name="with fissures" value="with fissures" onclick="CFgenerator.display.value += 'with fissures '"></td>
+               <td><input type="button" name="on extensor sides" value="on extensor sides" onclick="CFgenerator.display.value += 'on extensor sides '"></td>
+               
+               <td><input type="button" name="with mucosal involvement" value="with mucosal involvement" onclick="CFgenerator.display.value += 'with mucosal involvement '"></td>
+               <td><input type="button" name="with umbilical sparing" value="with umbilical sparing" onclick="CFgenerator.display.value += 'with umbilical sparing '"></td>
+               <td><input type="button" name="sparing nasolabial folds" value="sparing nasolabial folds" onclick="CFgenerator.display.value += 'sparing nasolabial folds '"></td>
+            </tr>
+            <tr>
+               <td><input type="button" name="with excoriations" value="with excoriations" onclick="CFgenerator.display.value += 'with excoriations '"></td>
+               <td><input type="button" name="on flexor sides" value="on flexor sides" onclick="CFgenerator.display.value += 'on flexor sides '"></td>
+               <td><input type="button" name="with moth-eaten pattern" value="with moth-eaten pattern" onclick="CFgenerator.display.value += 'with moth-eaten pattern '"></td>
+               <td><input type="button" name="at periorificial areas" value="at periorificial areas" onclick="CFgenerator.display.value += 'at periorificial areas '"></td>
+               <td><input type="button" name="with satellite lesions" value="with satellite lesions" onclick="CFgenerator.display.value += 'with satellite lesions '"></td>
+            </tr>
+         </table>
+         <table id="clear">
+            <tr>
+               <td><input type="button" id="clear" name="clear" value="c" onclick="CFgenerator.display.value = ''"></td>
+            </tr>
+         </table>
+      </form>
+      <h5>Developed by jrchang612 in NTUH, Taiwan</h5>
+      <h5>Materials partly offered by Dermatology Department, NTUH</h5>
+      <h5>Feb. 2019. Ver. 1</h5>
+   </body>
+</html>
