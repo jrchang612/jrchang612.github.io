@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html><head><style>
+html, body {
+    padding: 5px;
+}
+input, p{
+  display: inline-block;
+  vertical-align: middle;
+  margin: 10px 0;
+}
+#data-table {
+    font-family: calibri, arial;
+    width: 400px;
+}
+#data-table thead td {
+    background-color: #8CCCF1;
+}
+#data-table td {
+    border: 1px solid #466E85;
+    width: 136px;
+    padding: 7px;
+}
+#divLab {
+   background-color: #d9a0a9
+}
+#divEKG {
+   background-color: #8ab9f1
+}
+#divCXR {
+   background-color: #b7e3a8
+}
+        </style></head>
+<body>
+<div id="div0">
+    <h1>Medical Notes Generator</h1>
+    <h3>make physicians' lives easier...</h3>
+    <form name="MNgenerator">
+    <table id =”display”><tr><td colspan="10">
+    <textarea rows="20" cols="100" name="display" id="display"></textarea>
+    </td></tr></table>
+    </form>
+</div>
+<div id="div1">
+<!--This is a ...-->
+<button onclick="ThisIs()" id="ThisIs">This is</button><p>a</p><input type="text" id=age placeholder="e.g. 35y/o"><select id=gender onchange="sex()"><option value=" man ">man</option><option value=" woman ">woman</option></select><p>with</p><select id=underlying onchange="UnderlyingBox()"><option value="no known underlying disease. ">no known underlying disease.</option><option value="history of:">history of:</option></select></br></div>
+<!--This time, ...-->
+<button onclick="ThisTime()" id="ThisTime">This time, </button><input type="text" size="50" id=S/S placeholder="e.g. severe headache"><p>was noted</p><select id=sinceFor><option value="since ">since</option><option value="for ">for</option></select><input type="text" size="20" id=duration1><p>.</p></br>
+<!--OPD-->
+<button onclick="OPD()" id="OPD">Therefore, </button><select id=heShe3><option value="he ">he</option><option value="she ">she</option></select><p>visited Dr.</p><input type="text" id="DrName" size=10><p>'s OPD on</p><input type="text" id="Date2" placeholder="e.g. 2019/02"><p>.</p></br>
+<!--ER-->
+<button onclick="ER()" id="ER">Therefore, </button><select id=heShe1><option value="he ">he</option><option value="she ">she</option></select><select id=sentVisit><option value="was sent to our ER on ">was sent to our ER on</option><option value="visited our ER on ">visited our ER on</option></select><input type="text" id="Date1" placeholder="e.g. 2019/02/09 13:30"><p>. Upon arrival, </p><select id=hisHer1><option value="his ">his</option><option value="her ">her</option></select><p>vital signs showed</p><input type="text" size="40" id=vitalsInp placeholder="e.g. tachycardia and hypotension"><p> (T/P/R: <input type="text" size="10" id=TPR placeholder="36.5/110/18">, BP:<input type="text" size="6" id=BP placeholder="100/60">, Sat:<input type="text" size="15" id=Sat placeholder="99%(RA)">).</p></br>
+<!--Physical examinations showed...-->
+<button onclick="PE()" id="PE">Physical examinations showed </button><input type="text" id="PEresult" size="60" placeholder="e.g. diffuse wheezing"><p>.</p></br>
+<!--ABG showed...-->
+<button onclick="ABG()" id="ABG">Gas: </button><select id=ABGVBG><option value="ABG ">ABG</option><option value="VBG ">VBG</option></select>showed<input type="text" id="GasResult" size="50" placeholder="e.g. profound metabolic acidosis with respiratory compensation">(pH/pCO2/pO2/HCO3/BE: <input type="text" id="GasData" size="18" placeholder="7.40/40/95/24/0">)<p>.</p><button onclick="GasInt()" id="GasInt">AutoInterpret</button></br>
+<!--Lab data showed...-->
+<div id="divLab">
+<input type="button" name="Lab data were all within normal limits." value="Lab data were all within normal limits." onclick="MNgenerator.display.value += 'Lab data were all within normal limits. '"><br>
+<button onclick="Lab()" id="lab">Lab data showed </button>
+<input type="text" id="LabResult" size="100" placeholder="e.g. leukocytosis and left shift.">
+<table>
+<tr>
+<td><input type="button" name="anemia" value="anemia" onclick="LabResult.value += 'anemia'"></td>
+<td><input type="button" name="thrombocytopenia" value="thrombocytopenia" onclick="LabResult.value += 'thrombocytopenia'"></td>
+<td><input type="button" name="leukopenia" value="leukopenia" onclick="LabResult.value += 'leukopenia'"></td>
+<td><input type="button" name="neutropenia" value="neutropenia" onclick="LabResult.value += 'neutropenia'"></td>
+<td><input type="button" name="pancytopenia" value="pancytopenia" onclick="LabResult.value += 'pancytopenia'"></td>
+<td><input type="button" name="leukocytosis" value="leukocytosis" onclick="LabResult.value += 'leukocytosis'"></td>
+<td><input type="button" name="leukocytosis with left shift" value="leukocytosis with left shift" onclick="LabResult.value += 'leukocytosis with left shift'"></td>
+</tr>
+<tr>
+<td><input type="button" name="AKI" value="AKI" onclick="LabResult.value += 'AKI'"></td>
+<td><input type="button" name="obstructive jaundice" value="obstructive jaundice" onclick="LabResult.value += 'obstructive jaundice'"></td>
+<td><input type="button" name="elevated LFT" value="elevated LFT" onclick="LabResult.value += 'elevated LFT'"></td>
+<td><input type="button" name="elevated lactate" value="elevated lactate" onclick="LabResult.value += 'elevated lactate'"></td>
+<td><input type="button" name="elevated CRP" value="elevated CRP" onclick="LabResult.value += 'elevated CRP'"></td>
+</tr>
+<tr>
+<td><input type="button" name=", " value=", " onclick="LabResult.value += ', '"></td>
+<td><input type="button" name=", and " value=", and" onclick="LabResult.value += ', and '"></td>
+<td><input type="button" name=". " value=". " onclick="LabResult.value += '. '"></td>
+</tr>
+</table>
+</div>
+<!--EKG showed...-->
+<div id="divEKG">
+<button onclick="EKGRoutine()" id="EKGRoutine">Generate Routine EKG report on</button><input type="text" size=15 id="DateEKG" placeholder="e.g. 2019/02/08">
+<br>
+<button onclick="EKG()" id="EKG">EKG showed </button>
+<input type="text" id="EKGResult" size="50" placeholder="e.g. ST-elevation over II, III, aVF.">
+<table>
+<tr>
+<td><input type="button" name="SR" value="SR" onclick="EKGResult.value += 'sinus rhythm'"></td>
+<td><input type="button" name="NSR" value="NSR" onclick="EKGResult.value += 'normal sinus rhythm'"></td>
+<td><input type="button" name="ST" value="sinus tachy" onclick="EKGResult.value += 'sinus tachycardia'"></td>
+<td><input type="button" name="AfRVR" value="AfRVR" onclick="EKGResult.value += 'AfRVR'"></td>
+<td><input type="button" name="AF" value="AF" onclick="EKGResult.value += 'atrial flutter'"></td>
+<td><input type="button" name="STE" value="STE" onclick="EKGResult.value += 'ST elevation over'"></td>
+<td><input type="button" name="STD" value="STD" onclick="EKGResult.value += 'ST depression over'"></td>
+<td><input type="button" name="NS-STT changes" value="NS-STT changes" onclick="EKGResult.value += ' with non-specific ST-T changes'"></td>
+<td><input type="button" name="LQT" value="LQT" onclick="EKGResult.value += 'prolonged QT interval'"></td>
+<td><input type="button" name="pericarditis pattern" value="pericarditis pattern" onclick="EKGResult.value += 'diffuse PR depression and ST elevation'"></td>
+</tr>
+<tr>
+<td><input type="button" name="SB" value="SB" onclick="EKGResult.value += 'sinus bradycardia'"></td>
+<td><input type="button" name="1AVB" value="1AVB" onclick="EKGResult.value += '1st degree AV block'"></td>
+<td><input type="button" name="2-I AVB" value="2-I AVB" onclick="EKGResult.value += 'Mobitz type I 2nd degree AV block'"></td>
+<td><input type="button" name="2-II AVB" value="2-II AVB" onclick="EKGResult.value += 'Mobitz type II 2nd degree AV block'"></td>
+<td><input type="button" name="H-AVB" value="H-AVB" onclick="EKGResult.value += 'high-grade AV block'"></td>
+<td><input type="button" name="3AVB" value="3AVB" onclick="EKGResult.value += '3rd degree AV block'"></td>
+<td><input type="button" name="reciprocal" value="reciprocal" onclick="EKGResult.value += ' with reciprocal changes'"></td>
+<td><input type="button" name="JB" value="JB" onclick="EKGResult.value += 'junctional bradycardia'"></td>
+<td><input type="button" name="JT" value="JT" onclick="EKGResult.value += 'junctional tachycardia'"></td>
+<td><input type="button" name="APC" value="APC" onclick="EKGResult.value += ' with APC'"></td>
+</tr>
+<tr>
+<td><input type="button" name="VPC" value="VPC" onclick="EKGResult.value += ' with VPC'"></td>
+<td><input type="button" name="VT(+)" value="VT(+)" onclick="EKGResult.value += 'VT with pulses'"></td>
+<td><input type="button" name="VT(-)" value="VT(-)" onclick="EKGResult.value += 'pulseless VT'"></td>
+<td><input type="button" name="VF" value="VF" onclick="EKGResult.value += 'ventricular fibrillation'"></td>
+<td><input type="button" name="PEA" value="PEA" onclick="EKGResult.value += 'PEA'"></td>
+<td><input type="button" name="U" value="U" onclick="EKGResult.value += ' with U wave'"></td>
+<td><input type="button" name="hyperacute T" value="hyperacute T" onclick="EKGResult.value += 'hyperacute T waves over'"></td>
+<td><input type="button" name="biphasic T" value="biphasic T" onclick="EKGResult.value += 'biphasic T waves over'"></td>
+<td><input type="button" name="tented T" value="tented T" onclick="EKGResult.value += 'tented T'"></td>
+<td><input type="button" name="LAD" value="LAD" onclick="EKGResult.value += ' with left axis deviation'"></td>
+</tr>
+<tr>
+<td><input type="button" name="RAD" value="RAD" onclick="EKGResult.value += ' with right axis deviation'"></td>
+<td><input type="button" name="LAE" value="LAE" onclick="EKGResult.value += ' with left atrial enlargement'"></td>
+<td><input type="button" name="RAE" value="RAE" onclick="EKGResult.value += ' with right atrial enlargement'"></td>
+<td><input type="button" name="LVH" value="LVH" onclick="EKGResult.value += ' with left ventricular hypertrophy'"></td>
+<td><input type="button" name="RVH" value="RVH" onclick="EKGResult.value += ' with right ventricular hypertrophy'"></td>
+<td><input type="button" name="BVH" value="BVH" onclick="EKGResult.value += ' with bi-ventricular hypertrophy'"></td>
+<td><input type="button" name="low volt" value="low volt" onclick="EKGResult.value += ' with diffuse low voltage'"></td>
+<td><input type="button" name="no STT changes" value="no STT changes" onclick="EKGResult.value += 'no ST-T changes'"></td>
+<td><input type="button" name=". " value=". " onclick="EKGResult.value += '. '"></td>
+</tr>
+</table>
+</div>
+<!--Image showed...-->
+<div id="divCXR">
+<button onclick="CXRRoutine()" id="CXRRoutine">Generate Routine CXR report on</button><input type="text" size=15 id="DateCXR" placeholder="e.g. 2019/02/08">
+<br>
+</div>
+<!--Under the impression of...-->
+<button onclick="Imp()" id="Imp">Under the impression of </button><input type="text" size="30" id="impression"><p>, </p><select id=heShe2><option value="he ">he</option><option value="she ">she</option></select><p>was admitted to</p><input type="text" size="10" id="unit"><p>for further management.</p></br>
+<!--clear button-->
+<input type="button" id="clear" name="clear" value="CLEAR" onclick="MNgenerator.display.value = ''"></br>
+
+<button onclick="Add1()" id="Add1">Add1</button></br >
+<button onclick="Add2()" id="Add2">Add2</button></br >
+<button onclick="Rmv1()" id="Rmv">Rmv</button></br >
+
+<script>
+count = 0
+var display = document.getElementById("display")
+function Add1() {
+  var btn = document.createElement("BUTTON");
+  var t = document.createTextNode("There is");
+  var x = document.createEvent("MouseEvent");
+  btn.appendChild(t);
+  btn.id = "new"+count;
+  document.body.appendChild(btn);
+  document.getElementById("new"+count).setAttribute("onClick", "MNgenerator.display.value += 'There is '")
+  count += 1
+}
+function Add2() {
+  var btn = document.createElement("BUTTON");
+  var t = document.createTextNode("There are");
+  var x = document.createEvent("MouseEvent");
+  btn.appendChild(t);
+  btn.id = "new"+count;
+  document.body.appendChild(btn);
+  document.getElementById("new"+count).setAttribute("onClick", "MNgenerator.display.value += 'There are '")
+  count += 1
+}
+function Rmv1() {
+  for (i = 0; i < count; i++){
+  var element = document.getElementById("new"+i);
+  document.body.removeChild(element);
+  }
+  count = 0
+}
+function sex(){
+  for (i = 1; i < 4; i++){
+  if (document.getElementById("gender").value == " man "){
+  document.getElementById("heShe"+i).value = "he "}
+  else {document.getElementById("heShe"+i).value = "she "}
+  }
+  for (j = 1; j < 2; j++){
+  if (document.getElementById("gender").value == " man "){
+  document.getElementById("hisHer"+j).value = "his "}
+  else {document.getElementById("hisHer"+j).value = "her "}
+  }
+}
+function UnderlyingBox(){
+  var div1 = document.getElementById("div1")
+  if (document.getElementById("underlying").value == "history of:"){
+  var tbx = document.createElement("textarea");
+  tbx.id = "HxBox"
+  tbx.rows="5"
+  tbx.cols="30"
+  div1.appendChild(tbx);
+  }
+  if (document.getElementById("underlying").value == "no known underlying disease. "){
+  var tbx = document.getElementById("HxBox");
+  div1.removeChild(tbx);
+  }
+}
+function ThisIs(){
+  var par1 = "This is a "
+  var age = document.getElementById("age").value
+  var gender = document.getElementById("gender").value
+  var par2 = "with "
+  var par3 = document.getElementById("underlying").value
+  var par = (par1+age+gender+par2+par3+"\n")
+  display.value += par
+  if (document.getElementById("underlying").value == "history of:"){
+  var par4 = document.getElementById("HxBox").value
+  display.value += (par4 + "\n")
+  }
+}
+function ThisTime(){
+  var par1 = "This time, "
+  var SS = document.getElementById("S/S").value
+  var par2 = " was noted "
+  var par3 = document.getElementById("sinceFor").value
+  var par4 = document.getElementById("duration1").value
+  var par5 = (par1+SS+par2+par3+par4+". ")
+  display.value += par5
+}
+function Imp(){
+  var par1 = "Under the impression of "
+  var impression = document.getElementById("impression").value
+  var par2 = ", "
+  var par3 = document.getElementById("heShe2").value
+  var par4 = "was admitted to "
+  var par5 = document.getElementById("unit").value
+  var par6 = " for further management."
+  var par7 = (par1+impression+par2+par3+par4+par5+par6+"\n")
+  display.value += par7
+}
+function DefaultDate() {
+    var date = new Date();
+    var day = date.getDate();
+    var month = date.getMonth() + 1;
+    var year = date.getFullYear();
+    if (month < 10) month = "0" + month;
+    if (day < 10) day = "0" + day;
+    var today = year + "/" + month + "/" + day;       
+    $("#theDate").attr("value", today);
+}
+function ER(){
+  var par1 = "Therefore, "
+  var heShe = document.getElementById("heShe1").value
+  var sentVisit = document.getElementById("sentVisit").value
+  par2 = ", "
+  var par3 = document.getElementById("Date1").value
+  var par4 = ". Upon arrival, "
+  var par5 = document.getElementById("hisHer1").value
+  var par6 = "vital signs showed "
+  var par7 = document.getElementById("vitalsInp").value
+  var par8 = "(T/P/R: "
+  var par9 = document.getElementById("TPR").value
+  var par10 = ", BP: "
+  var par11 = document.getElementById("BP").value
+  var par12 = ", Sat: "
+  var par13 = document.getElementById("Sat").value
+  var par14 = "). "
+  var par15 = (par1+heShe+sentVisit+par3+par4+par5+par6+par7+par8+par9+par10+par11+par12+par13+par14)
+  display.value += par15
+}
+function PE(){
+  var par1 = "Physical examinations showed "
+  var pe = document.getElementById("PEresult").value
+  var par2 = ". "
+  var par3 = (par1+pe+par2)
+  display.value += par3
+}
+function ABG(){
+  var par1 = document.getElementById("ABGVBG").value
+  var par2 = "showed "
+  var par3 = document.getElementById("GasResult").value
+  var par4 = " (pH/pCO2/pO2/HCO3/BE: "
+  var par5 = document.getElementById("GasData").value
+  var par6 = "). "
+  var par7 = (par1+par2+par3+par4+par5+par6)
+  display.value += par7
+}
+function GasInt(){
+  var Data = document.getElementById("GasData").value
+  var [pH,pCO2,pO2,HCO3,BE] = Data.split("/");
+  var ABGVBG = document.getElementById("ABGVBG").value
+  var GasResult = document.getElementById("GasResult")
+  if (ABGVBG == "ABG "){
+  	if (pH<=7.45 && pH>=7.35 && pCO2<=45 && pCO2>=35 && HCO3<=26 && HCO3>=22 && BE<=2 && BE>=-2){GasResult.value = "normal acid base status"}
+    else if (pH<=7.40){
+      if (pCO2>=40){//respiratory acidosis(+)
+        var dCO2 = (pCO2 - 40)
+        var dHCO3 = (HCO3 - 24)
+        var ratio = dHCO3/dCO2
+      	if (ratio <= 0.05){GasResult.value = "mixed respiratory and metabolic acidosis"}
+        else if (ratio <= 0.15){GasResult.value = "acute respiratory acidosis"}
+        else if (ratio <= 0.25){GasResult.value = "acute on chronic respiratory acidosis"}
+        else if (ratio <= 0.40){GasResult.value = "chronic respiratory acidosis"}
+        else {GasResult.value = "mixed respiratory acidosis and metabolic alkalosis"}
+      }
+      else{ //metabolic acidosis(+)
+        var dHCO3 = (24 - HCO3)
+        var dCO2 = (40 - pCO2)
+        var ratio = dCO2/dHCO3
+        if (ratio <= 0.7){GasResult.value = "metabolic acidosis without expected compensation"}
+        else if (ratio <= 1.5){GasResult.value = "metabolic acidosis with respiratory compensation"}
+        else {GasResult.value = "mixed metabolic acidosis and respiratory alkalosis"}
+      }
+    }
+    else { //pH>7.40
+      if (pCO2<40){//respiratory alkalosis(+)
+        var dCO2 = (40 - pCO2)
+        var dHCO3 = (24 - HCO3)
+        var ratio = dHCO3/dCO2
+        if (ratio <= 0.1){GasResult.value = "mixed respiratory and metabolic alkalosis"}
+        else if (ratio <= 0.3){GasResult.value = "acute respiratory alkalosis"}
+        else if (ratio <= 0.4){GasResult.value = "acute on chronic respiratory alkalosis"}
+        else {GasResult.value = "chronic respiratory alkalosis"}
+      }
+      else{//metabolic alkalosis(+)
+        var dCO2 = (pCO2 - 40)
+        var dHCO3 = (HCO3 - 24)
+        var ratio = dCO2/dHCO3
+        if (ratio < 0.35){GasResult.value = "metabolic alkalosis without expected respiratory compensation"}
+        else if (ratio < 1){GasResult.value = "metabolic alkalosis with respiratory compensation"}
+        else {GasResult.value = "mixed metabolic alkalosis and respiratory acidosis"}
+      }
+    }
+    if (pO2<=75){GasResult.value += " + hypoxemia"}
+  }
+  else{//VBG
+  	if (pH<=7.40 && pH>=7.30 && HCO3<=24 && HCO3>=20 && BE<=2 && BE>=-2 ){GasResult.value = "normal VBG"}
+    else if (pH<=7.30){
+      if (BE<=-2){GasResult.value = "metabolic acidosis"}
+      else if(BE<=2){GasResult.value = "respiratory acidosis"}
+      else{GasResult.value = "mixed respiratory acidosis and metabolic alkalosis"}
+    }
+    else if (pH>7.40){ 
+      if (BE>=2){GasResult.value = "metabolic alkalosis"}
+      else if(BE>=-2){GasResult.value = "respiratory alkalosis"}
+      else {GasResult.value = "mixed respiratory alkalosis and metabolic acidosis"}
+    }
+    else{GasResult.value = "inconclusive"}
+  }
+}
+function OPD(){
+  var par1 = "Therefore, "
+  var par2 = document.getElementById("heShe3").value
+  var par3 = "visited Dr."
+  var par4 = document.getElementById("DrName").value
+  var par5 = "'s OPD on "
+  var par6 = document.getElementById("Date2").value
+  var par7 = ". "
+  var par8 = (par1+par2+par3+par4+par5+par6+par7)
+  display.value += par8  
+}
+function Lab(){
+  var par1 = "Lab data showed "
+  var par2 = document.getElementById("LabResult").value
+  var par3 = par1+par2
+  display.value += par3    
+}
+function EKG(){
+  var par1 = "EKG showed "
+  var par2 = document.getElementById("EKGResult").value
+  var par3 = par1+par2
+  display.value += par3  
+}
+function EKGRoutine(){
+  var par1 = "EKG "
+  var par2 = document.getElementById("DateEKG").value
+  var par3 = "\n"
+  var par4 = "Normal sinus rhythm. Normal EKG.\n"
+  var par5 = par1+par2+par3+par4
+  display.value += par5
+}
+function CXRRoutine(){
+  var par1 = "CXR "
+  var par2 = document.getElementById("DateCXR").value
+  var par3 = "\n"
+  var par4 = "Patent airway. No evident bone lesions. Normal heart size with sharp heart borders. Normal lung volume. Bilateral sharp CP angles. No definite lung lesions. Formal report pending.\n"
+  var par5 = par1+par2+par3+par4
+  display.value += par5
+}
+</script>
+
+</body>
+</html>
