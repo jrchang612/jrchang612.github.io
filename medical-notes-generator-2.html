@@ -1,5 +1,9 @@
 <!DOCTYPE html>
-<html><head><style>
+<html><head>
+	<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+	<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<style>
 html, body {
     padding: 5px;
 }
@@ -83,31 +87,115 @@ input, p{
     <textarea rows="20" cols="90" name="display" id="display"></textarea>
     </form>
 </div><p>
-<!--This is a ...-->
-<div id="divThisIs">
-<button onclick="ThisIs()" id="ThisIs">This is</button><p>a</p><input type="text" id="age" placeholder="e.g. 35y/o"><select id="gender" onchange="sex()"><option value=" man ">man</option><option value=" woman ">woman</option></select><p>with</p><select id="underlying" onchange="UnderlyingBox()"><option value="no known underlying disease. ">no known underlying disease.</option><option value="history of:">history of:</option></select></div>
-<!--This time, ...-->
-<div id="divThisTime">
+<div class="panel-group" id="accordion">
+    <!--This is a ...-->
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<h4 class="panel-title">
+				<a data-toggle="collapse" data-parent="#accordion" 
+				   href="#collapseOne">
+					This is a ...
+				</a>
+			</h4>
+		</div>
+		<div id="collapseOne" class="panel-collapse collapse in">
+			<div class="panel-body" id="divThisIs">
+<button onclick="ThisIs()" id="ThisIs">This is</button><p>a</p><input type="text" id="age" placeholder="e.g. 35y/o"><select id="gender" onchange="sex()"><option value=" man ">man</option><option value=" woman ">woman</option></select><p>with</p><select id="underlying" onchange="UnderlyingBox()"><option value="no known underlying disease. ">no known underlying disease.</option><option value="history of:">history of:</option></select>
+			</div>
+		</div>
+	</div>
+    <!--This time, ...-->
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<h4 class="panel-title">
+				<a data-toggle="collapse" data-parent="#accordion" 
+				   href="#collapseTwo">
+					This time...
+				</a>
+			</h4>
+		</div>
+		<div id="collapseTwo" class="panel-collapse collapse">
+			<div class="panel-body" id="divThisTime">
 <button onclick="ThisTime()" id="ThisTime">This time, </button><input type="text" size="50" id="S/S" placeholder="e.g. severe headache"><p>was noted</p><select id="sinceFor"><option value="since ">since</option><option value="for ">for</option></select><input type="text" size="20" id="duration1"><p>.</p>
-</div>
-<!--OPD-->
-<div id="divOPD">
+			</div>
+		</div>
+	</div>
+    <!--OPD-->
+    <div class="panel panel-default">
+		<div class="panel-heading">
+			<h4 class="panel-title">
+				<a data-toggle="collapse" data-parent="#accordion" 
+				   href="#collapseThree">
+					Therefore, he/she visited ...'s OPD...
+				</a>
+			</h4>
+		</div>
+		<div id="collapseThree" class="panel-collapse collapse">
+			<div class="panel-body" id="divOPD">
 <button onclick="OPD()" id="OPD">Therefore, </button><select id="heShe3"><option value="he ">he</option><option value="she ">she</option></select><p>visited Dr.</p><input type="text" id="DrName" size="10"><p>'s OPD on</p><input type="text" id="Date2" placeholder="e.g. 2019/02"><p>.</p>
-</div>
-<!--ER-->
-<div id="divER">
+			</div>
+		</div>
+	</div>
+    <!--ER-->
+    <div class="panel panel-default">
+		<div class="panel-heading">
+			<h4 class="panel-title">
+				<a data-toggle="collapse" data-parent="#accordion" 
+				   href="#collapseFour">
+					Therefore, he/she was sent to ER...
+				</a>
+			</h4>
+		</div>
+		<div id="collapseFour" class="panel-collapse collapse">
+			<div class="panel-body" id="divER">
 <button onclick="ER()" id="ER">Therefore, </button><select id="heShe1"><option value="he ">he</option><option value="she ">she</option></select><select id="sentVisit"><option value="was sent to our ER on ">was sent to our ER on</option><option value="visited our ER on ">visited our ER on</option></select><input type="text" id="Date1" placeholder="e.g. 2019/02/09 13:30"><p>. Upon arrival, </p><select id="hisHer1"><option value="his ">his</option><option value="her ">her</option></select><p>vital signs showed</p><input type="text" size="40" id="vitalsInp" placeholder="e.g. tachycardia and hypotension"><p> (T/P/R: </p><input type="text" size="10" id="TPR" placeholder="36.5/110/18"><p>, BP:</p><input type="text" size="6" id="BP" placeholder="100/60"><p>, Sat:</p><input type="text" size="15" id="Sat" placeholder="99%(RA)"><p>).</p>
-</div>
-<!--Physical examinations showed...-->
-<div id="divPE">
+			</div>
+		</div>
+	</div>
+    <!--Physical examinations showed...-->
+    <div class="panel panel-default">
+		<div class="panel-heading">
+			<h4 class="panel-title">
+				<a data-toggle="collapse" data-parent="#accordion" 
+				   href="#collapseFive">
+					PE showed...
+				</a>
+			</h4>
+		</div>
+		<div id="collapseFive" class="panel-collapse collapse">
+			<div class="panel-body" id="divPE">
 <button onclick="PE()" id="PE">Physical examinations showed </button><input type="text" id="PEresult" size="60" placeholder="e.g. diffuse wheezing"><p>.</p>
-</div>
-<!--ABG showed...-->
-<div id="divABG">
+			</div>
+		</div>
+	</div>
+    <!--ABG showed...-->
+    <div class="panel panel-default">
+		<div class="panel-heading">
+			<h4 class="panel-title">
+				<a data-toggle="collapse" data-parent="#accordion" 
+				   href="#collapseSix">
+					ABG/VBG showed...
+				</a>
+			</h4>
+		</div>
+		<div id="collapseSix" class="panel-collapse collapse">
+			<div class="panel-body" id="divABG">
 <button onclick="ABG()" id="ABG">Gas: </button><select id="ABGVBG"><option value="ABG ">ABG</option><option value="VBG ">VBG</option></select>showed<input type="text" id="GasResult" size="50" placeholder="e.g. profound metabolic acidosis with respiratory compensation">(pH/pCO2/pO2/HCO3/BE: <input type="text" id="GasData" size="18" placeholder="7.40/40/95/24/0">)<p>.</p><button onclick="GasInt()" id="GasInt">AutoInterpret</button>
-</div>
-<!--Lab data showed...-->
-<div id="divLab">
+			</div>
+		</div>
+	</div>
+    <!--Lab data showed...-->
+    <div class="panel panel-default">
+		<div class="panel-heading">
+			<h4 class="panel-title">
+				<a data-toggle="collapse" data-parent="#accordion" 
+				   href="#collapseSeven">
+					Lab data showed...
+				</a>
+			</h4>
+		</div>
+		<div id="collapseSeven" class="panel-collapse collapse">
+			<div class="panel-body" id="divLab">
 <input type="button" name="Lab data were all within normal limits." value="Lab data were all within normal limits." onclick="MNgenerator.display.value += 'Lab data were all within normal limits. '">
 <button onclick="Lab()" id="lab">Lab data showed </button>
 <input type="text" id="LabResult" size="100" placeholder="e.g. leukocytosis and left shift.">
@@ -134,9 +222,21 @@ input, p{
 <td><input type="button" name=". " value=". " onclick="LabResult.value += '. '"></td>
 </tr>
 </table>
-</div>
-<!--EKG showed...-->
-<div id="divEKG">
+			</div>
+		</div>
+	</div>
+    <!--EKG showed...-->
+    <div class="panel panel-default">
+		<div class="panel-heading">
+			<h4 class="panel-title">
+				<a data-toggle="collapse" data-parent="#accordion" 
+				   href="#collapseEight">
+					EKG showed...
+				</a>
+			</h4>
+		</div>
+		<div id="collapseEight" class="panel-collapse collapse">
+			<div class="panel-body" id="divEKG">
 <button onclick="EKGRoutine()" id="EKGRoutine">Generate Routine EKG report on</button><input type="text" size="15" id="DateEKG" placeholder="e.g. 2019/02/08"><br>
 <button onclick="EKG()" id="EKG">EKG showed </button>
 <input type="text" id="EKGResult" size="50" placeholder="e.g. ST-elevation over II, III, aVF."><br>
@@ -150,7 +250,7 @@ input, p{
 <input type="button" name="2-II AVB" value="2-II AVB" onclick="EKGResult.value += 'Mobitz type II 2nd degree AV block'">
 <input type="button" name="H-AVB" value="H-AVB" onclick="EKGResult.value += 'high-grade AV block'">
 <input type="button" name="3AVB" value="3AVB" onclick="EKGResult.value += '3rd degree AV block'">
-<input type="button" name="SB" value="SB" onclick="EKGResult.value += 'sinus bradycardia'"></td>
+<input type="button" name="SB" value="SB" onclick="EKGResult.value += 'sinus bradycardia'">
 <input type="button" name="JB" value="JB" onclick="EKGResult.value += 'junctional bradycardia'">
 <input type="button" name="JT" value="JT" onclick="EKGResult.value += 'junctional tachycardia'">
 <input type="button" name="VT(+)" value="VT(+)" onclick="EKGResult.value += 'VT with pulses'">
@@ -181,9 +281,21 @@ onclick="EKGResult.value += ' with right atrial enlargement'">
 <input type="button" name="pericarditis pattern" value="pericarditis pattern" onclick="EKGResult.value += 'diffuse PR depression and ST elevation'">
 <input type="button" name=", " value=", " onclick="EKGResult.value += ', '">
 <input type="button" name=". " value=". " onclick="EKGResult.value += '. '">
-</div>
-<!--Image showed...-->
-<div id="divCXR">
+			</div>
+		</div>
+	</div>
+    <!--Image showed...-->
+    <div class="panel panel-default">
+		<div class="panel-heading">
+			<h4 class="panel-title">
+				<a data-toggle="collapse" data-parent="#accordion" 
+				   href="#collapseNine">
+					Image showed...
+				</a>
+			</h4>
+		</div>
+		<div id="collapseNine" class="panel-collapse collapse">
+			<div class="panel-body" id="divCXR">
 <button onclick="CXRRoutine()" id="CXRRoutine">Generate Routine CXR report on</button><input type="text" size="15" id="DateCXR" placeholder="e.g. 2019/02/08"><br>
 <select id="ImgMod">
 <option value="CXR ">CXR</option>
@@ -207,55 +319,121 @@ onclick="EKGResult.value += ' with right atrial enlargement'">
 </select>
 <input type="text" id="otherMod" size="25" placeholder="Other(left blank if not needed)"><p>on</p><input type="text" id="ImgDate" size="15" placeholder="e.g. 2019/02/19"><button onclick="Img()" id="Img">showed</button>
 <input type="text" id="ImgResult" size="60" placeholder="e.g. bilateral increased infiltration.">
-<table>
-<tr>
-<td><input type="button" name="PNA" value="pneumonia" onclick="ImgResult.value += 'pneumonia patch'"></td>
-<td><input type="button" name="tumor" value="tumor" onclick="ImgResult.value += 'a tumor'"></td>
-<td><input type="button" name="no ICH" value="no ICH" onclick="ImgResult.value += 'no ICH/SAH/SDH/EDH'"></td>
-<td><input type="button" name="no free air" value="no free air" onclick="ImgResult.value += 'no free air'"></td>
-<td><input type="button" name="cardiomegaly" value="cardiomegaly" onclick="ImgResult.value += 'cardiomegaly'"></td>
-<td><input type="button" name="bilateral increased infiltration" value="bil. inc. infiltration" onclick="ImgResult.value += 'bilateral increased infiltration'"></td>
-</tr>
-<tr>
-<td><input type="button" name="on" value="on" onclick="ImgResult.value += (' on ' + PNALoc.value)"></td>
-<td><select id="PNALoc"><option value="LUL">LUL</option><option value="LLL">LLL</option><option value="RUL">RUL</option><option value="RML">RML</option><option value="RLL">RLL</option></td>
-<td><input type="button" name=", " value=", " onclick="ImgResult.value += ', '"></td>
-<td><input type="button" name=", and " value=", and " onclick="ImgResult.value += ', and '"></td>
-<td><input type="button" name=". " value=". " onclick="ImgResult.value += '. '"></td>
-</tr>
-</table>
-</div>
-<!--Under the impression of...-->
-<div id="divImp">
+<input type="button" name="PNA" value="pneumonia" onclick="ImgResult.value += 'pneumonia patch'">
+<input type="button" name="tumor" value="tumor" onclick="ImgResult.value += 'a tumor'">
+<input type="button" name="no ICH" value="no ICH" onclick="ImgResult.value += 'no ICH/SAH/SDH/EDH'">
+<input type="button" name="no free air" value="no free air" onclick="ImgResult.value += 'no free air'">
+<input type="button" name="cardiomegaly" value="cardiomegaly" onclick="ImgResult.value += 'cardiomegaly'">
+<input type="button" name="bilateral increased infiltration" value="bil. inc. infiltration" onclick="ImgResult.value += 'bilateral increased infiltration'">
+<input type="button" name="on" value="on" onclick="ImgResult.value += (' on ' + PNALoc.value)">
+<select id="PNALoc"><option value="LUL">LUL</option><option value="LLL">LLL</option><option value="RUL">RUL</option><option value="RML">RML</option><option value="RLL">RLL</option></select>
+<input type="button" name=", " value=", " onclick="ImgResult.value += ', '">
+<input type="button" name=", and " value=", and " onclick="ImgResult.value += ', and '">
+<input type="button" name=". " value=". " onclick="ImgResult.value += '. '">
+			</div>
+		</div>
+	</div>
+    <!--Under the impression of...-->
+    <div class="panel panel-default">
+		<div class="panel-heading">
+			<h4 class="panel-title">
+				<a data-toggle="collapse" data-parent="#accordion" 
+				   href="#collapseTen">
+					Under the impression of...
+				</a>
+			</h4>
+		</div>
+		<div id="collapseTen" class="panel-collapse collapse">
+			<div class="panel-body" id="divImp">
 <button onclick="Imp()" id="Imp">Under the impression of </button><input type="text" size="30" id="impression"><p>, </p><select id="heShe2"><option value="he ">he</option><option value="she ">she</option></select><p>was admitted to</p><input type="text" size="10" id="unit"><p>on</p><input type="text" size="15" id="dateAdmit" placeholder="e.g. 2019/02/09"><select id="manage"><option value="for further management. ">for further management.</option><option value="for further evaluations and management. ">for further evaluations and management.</option><option value="for surgical management. ">for surgical management.</option><option value="for scheduled chemotherapy. ">for scheduled chemotherapy.</option><option value="for scheduled target therapy. ">for scheduled target therapy.</option><option value="for Rituximab. ">for Rituximab.</option></select>
-</div>
-<!--After admission,...-->
-<div id="divAfter">
+			</div>
+		</div>
+	</div>
+    <!--After admission,...-->
+    <div class="panel panel-default">
+		<div class="panel-heading">
+			<h4 class="panel-title">
+				<a data-toggle="collapse" data-parent="#accordion" 
+				   href="#collapseEleven">
+					After admission/transferral,...
+				</a>
+			</h4>
+		</div>
+		<div id="collapseEleven" class="panel-collapse collapse">
+			<div class="panel-body" id="divAfter">
 <button onclick="After()" id="After">After</button><select id="AdminTR"><option value="admission, ">admission, </option><option value="transferral, ">transferral, </option></select><select id="ThereWereNo">
 <option value="we monitored the patient's vital signs closely. ">we monitored the patient's vital signs closely.</option>
 <option value="there were no contraindications to surgery. ">there were no contraindications to surgery. </option>
 <option value="there were no contraindications to chemotherapy. ">there were no contraindications to chemotherapy. </option>
 <option value="there were no contraindications to target therapy. ">there were no contraindications to target therapy. </option>
 <option value="there were no contraindications to Rituximab. ">there were no contraindications to target Rituximab. </option></select>
-</div>
-<!--what was Done-->
-<div id="divDone">
-<input type="text" id="WWD" size="40" placeholder = "e.g. LUL lobectomy"><button onclick="Done()" id="Done">was done on</button></p><input type="text" id="DateDone" size="20" placeholder="e.g. 2019/02/20"><select id="tolerate"><option value=". ">. </option><option value=", and he tolerated the procedure well. ">, and he tolerated the procedure well.</option><option value=", and she tolerated the procedure well. ">, and she tolerated the procedure well.</option></select>
-</div>
-<!--His/Her condition was ... since then-->
-<div id="divCond">
+			</div>
+		</div>
+	</div>
+    <!--what was Done-->
+    <div class="panel panel-default">
+		<div class="panel-heading">
+			<h4 class="panel-title">
+				<a data-toggle="collapse" data-parent="#accordion" 
+				   href="#collapseTwelve">
+					...was done on ...
+				</a>
+			</h4>
+		</div>
+		<div id="collapseTwelve" class="panel-collapse collapse">
+			<div class="panel-body" id="divDone">
+<input type="text" id="WWD" size="40" placeholder = "e.g. LUL lobectomy"><button onclick="Done()" id="Done">was done on</button><input type="text" id="DateDone" size="20" placeholder="e.g. 2019/02/20"><select id="tolerate"><option value=". ">. </option><option value=", and he tolerated the procedure well. ">, and he tolerated the procedure well.</option><option value=", and she tolerated the procedure well. ">, and she tolerated the procedure well.</option></select>
+			</div>
+		</div>
+	</div>
+    <!--His/Her condition was ... since then-->
+    <div class="panel panel-default">
+		<div class="panel-heading">
+			<h4 class="panel-title">
+				<a data-toggle="collapse" data-parent="#accordion" 
+				   href="#collapse13">
+					His/Her condition was ... since then
+				</a>
+			</h4>
+		</div>
+		<div id="collapse13" class="panel-collapse collapse">
+			<div class="panel-body" id="divCond">
 <select id="HisHer1"><option value="His ">His</option><option value="Her ">Her</option></select><button onclick="Cond()" id="Cond">conditions</button><select id="CondChange"><option value="have been stable since then. ">have been stable since then.</option><option value="have been stationary since then. ">have been stationary since then.</option><option value="have been improving since then. ">have been improving since then.</option><option value="have been deteriorating since then. ">have been deteriorating since then.</option></select>
-</div>
-<!--However, ...-->
-<div id="divHowever">
+			</div>
+		</div>
+	</div>
+    <!--However, ...-->
+    <div class="panel panel-default">
+		<div class="panel-heading">
+			<h4 class="panel-title">
+				<a data-toggle="collapse" data-parent="#accordion" 
+				   href="#collapse14">
+					However,...
+				</a>
+			</h4>
+		</div>
+		<div id="collapse14" class="panel-collapse collapse">
+			<div class="panel-body" id="divHowever">
 <button onclick="However()" id="However">However, </button><input type="text" size="30" id="WHPN" placeholder="e.g. fever up to 38.3C"><p>was noted on</p><input type="text" size="30" id="DateHPN" placeholder="e.g. 2019/02/20"><p>.</p><br><input type="text" id="whatWasDone" size="80" placeholder = "e.g. Septic workup was done, and antibiotics was shifted from Unasyn to Tazocin."><br>
 <input type="button" name="Septic workup was done" value="Septic workup was done" onclick="whatWasDone.value += 'Septic workup was done'"><input type="button" name=", and antibiotics was shifted from *** to ***." value=", and antibiotics was shifted from *** to ***." onclick="whatWasDone.value += ', and antibiotics was shifted from *** to ***. '"><br>
 <input type="button" name="Delirium workup was done" value="Delirium workup was done" onclick="whatWasDone.value += 'Delirium workup was done'"><input type="button" name=", and Haldol/Seroquel was given." value=", and Haldol/Seroquel was given." onclick="whatWasDone.value += ', and Haldol/Seroquel was given. '"><br>
 <input type="button" name="Emergent CT was done, which showed " value="Emergent CT was done, which showed " onclick="whatWasDone.value += 'Emergent CT was done, which showed '"><input type="button" name="Mannitol was given. " value="Mannitol was given. " onclick="whatWasDone.value += 'Mannitol was given. '"><input type="button" name="HTS was given. " value="HTS was given. " onclick="whatWasDone.value += 'Hypertonic saline was given. '"><br>
 <input type="button" name="BiPAP was initiated." value="BiPAP was initiated." onclick="whatWasDone.value += 'BiPAP was initiated. '"><input type="button" name="The patient was intubated." value="The patient was intubated." onclick="whatWasDone.value += 'The patient was intubated. '">
-</div>
-<!--Antibiotics-->
-<div id="divAnti">
+			</div>
+		</div>
+	</div>
+    <!--Antibiotics-->
+    <div class="panel panel-default">
+		<div class="panel-heading">
+			<h4 class="panel-title">
+				<a data-toggle="collapse" data-parent="#accordion" 
+				   href="#collapse15">
+					Antibiotics...
+				</a>
+			</h4>
+		</div>
+		<div id="collapse15" class="panel-collapse collapse">
+			<div class="panel-body" id="divAnti">
 <input type="button" name="AntiSent" value="Add Sentence" onclick="MNgenerator.display.value += Anti.value"><br><textarea cols="80" rows="3" id="Anti"></textarea><br>
 <input type="button" name="Septic workup was done" value="Septic workup was done" onclick="Anti.value += 'Septic workup was done'">
 <input type="button" name="BCx" value="BCx" onclick="Anti.value += 'Blood culture on '">
@@ -334,9 +512,21 @@ onclick="EKGResult.value += ' with right atrial enlargement'">
 <input type="button" name="Diflucan" value="Diflucan" onclick="Anti.value += 'Diflucan'">
 <input type="button" name="Vfend" value="Vfend" onclick="Anti.value += 'Vfend'">
 <input type="button" name="Eraxis" value="Eraxis" onclick="Anti.value += 'Eraxis'">
-</div>
-<!--Removal-->
-<div id="divRM">
+			</div>
+		</div>
+	</div>
+    <!--Removal-->
+    <div class="panel panel-default">
+		<div class="panel-heading">
+			<h4 class="panel-title">
+				<a data-toggle="collapse" data-parent="#accordion" 
+				   href="#collapse16">
+					... was removed ...
+				</a>
+			</h4>
+		</div>
+		<div id="collapse16" class="panel-collapse collapse">
+			<div class="panel-body" id="divHowever">
 <select id="Drain">
 <option value="CWV">CWV</option>
 <option value="Chest tube">Chest tube</option>
@@ -350,9 +540,21 @@ onclick="EKGResult.value += ' with right atrial enlargement'">
 <input type="text" id="otherDrain" size="25" placeholder="Other(left blank if not needed)"><button onclick="RM()" id="RM">was removed on</button><input type="text" id="RMDate" size="15" placeholder="e.g. 2019/02/19"><br>
 <input type="button" name="fuCXR" value="Follow up CXR showed no evidence of pneumothorax." onclick="display.value += 'Follow up CXR showed no evidence of pneumothorax. '">
 <input type="button" name="fuXR" value="Follow up x-ray showed normal position of screws." onclick="display.value += 'Follow up x-ray showed normal position of screws. '">
-</div>
-<!--Transfer-->
-<div id="divTR">
+			</div>
+		</div>
+	</div>
+    <!--Transfer-->
+    <div class="panel panel-default">
+		<div class="panel-heading">
+			<h4 class="panel-title">
+				<a data-toggle="collapse" data-parent="#accordion" 
+				   href="#collapse17">
+					Under ... condition, he/she was transferred to...
+				</a>
+			</h4>
+		</div>
+		<div id="collapse17" class="panel-collapse collapse">
+			<div class="panel-body" id="divTR">
 <button onclick="TR()" id="TR">Under</button><select id="TRCond">
 <option value=" stable condition, ">stable condition,</option>
 <option value=" unstable condition, ">unstable condition,</option>
@@ -364,19 +566,58 @@ onclick="EKGResult.value += ' with right atrial enlargement'">
 <option value="she ">she</option>
 </select>
 <p>was transferred to</p><input type="text" size="20" id="TRUnit" placeholder="e.g. SICU"><p>on</p><input type="text" size="20" id="TRDate" placeholder="e.g. 2019/01/30"><p>for further management.</p>
-</div>
-<!--Discharge-->
-<div id="divDC">
+			</div>
+		</div>
+	</div>
+    <!--Discharge-->
+    <div class="panel panel-default">
+		<div class="panel-heading">
+			<h4 class="panel-title">
+				<a data-toggle="collapse" data-parent="#accordion" 
+				   href="#collapse18">
+					Discharge...
+				</a>
+			</h4>
+		</div>
+		<div id="collapse18" class="panel-collapse collapse">
+			<div class="panel-body" id="divDC">
 <button onclick="DC()" id="DC">Under stable condition, </button><select id="heShe5"><option value="he ">he</option><option value="she ">she</option>
 </select><p>was discharged on</p><input type="text" size="15" id="DCDate" placeholder="e.g. 2019/01/30"><p>, and OPD follow up was arranged.</p>
-</div>
-<!--Extubation Note-->
-<div id="divExtubate">
-<button onclick="ExtubationRoutine()" id="ExtubationRoutine">Generate Extubation Note on</button><input type="text" size="20" id="DateEXT" placeholder="e.g. 2019/02/08 13:30"><p>. Consciousness level: E</p><select id="E"><option value="4">4</option><option value="3">3</option><option value="2">2</option><option value="1">1</option></select><p>M</p><select id="M"><option value="6">6</option><option value="5">5</option><option value="4">4</option><option value="3">3</option><option value="2">2</option><option value="1">1</option></select><p>VT.</p><br>
-</div>
-<!--Death Note-->
-<div id="divDeath">
+			</div>
+		</div>
+	</div>
+    <!--Extubation Note-->
+    <div class="panel panel-default">
+		<div class="panel-heading">
+			<h4 class="panel-title">
+				<a data-toggle="collapse" data-parent="#accordion" 
+				   href="#collapse19">
+					Extubation Note
+				</a>
+			</h4>
+		</div>
+		<div id="collapse19" class="panel-collapse collapse">
+			<div class="panel-body" id="divExtubate">
+<button onclick="ExtubationRoutine()" id="ExtubationRoutine">Generate Extubation Note on</button><input type="text" size="20" id="DateEXT" placeholder="e.g. 2019/02/08 13:30"><p>. Consciousness level: E</p><select id="E"><option value="4">4</option><option value="3">3</option><option value="2">2</option><option value="1">1</option></select><p>M</p><select id="M"><option value="6">6</option><option value="5">5</option><option value="4">4</option><option value="3">3</option><option value="2">2</option><option value="1">1</option></select><p>VT.</p>
+			</div>
+		</div>
+	</div>
+    <!--Death Note-->
+    <div class="panel panel-default">
+		<div class="panel-heading">
+			<h4 class="panel-title">
+				<a data-toggle="collapse" data-parent="#accordion" 
+				   href="#collapse20">
+					Death Note(DNR)
+				</a>
+			</h4>
+		</div>
+		<div id="collapse20" class="panel-collapse collapse">
+			<div class="panel-body" id="divDeath">
 <button onclick="DeathDNRRoutine()" id="DeathDNRRoutine">Generate Death Note (DNR) on</button><input type="text" size="20" id="DateDeathDNR" placeholder="e.g. 2019/02/08 13:30"><br>
+			</div>
+		</div>
+	</div>
 </div>
 <!--clear button-->
 <div id="divClear">
@@ -398,13 +639,13 @@ function sex(){
   }
 }
 function UnderlyingBox(){
-  var div1 = document.getElementById("div1")
+  var divThisIs = document.getElementById("divThisIs")
   if (document.getElementById("underlying").value == "history of:"){
   var tbx = document.createElement("textarea");
   tbx.id = "HxBox"
   tbx.rows="5"
   tbx.cols="30"
-  div1.appendChild(tbx);
+  divThisIs.appendChild(tbx);
   }
   if (document.getElementById("underlying").value == "no known underlying disease. "){
   var tbx = document.getElementById("HxBox");
@@ -423,6 +664,16 @@ function ThisIs(){
   var par4 = document.getElementById("HxBox").value
   display.value += (par4 + "\n")
   }
+}
+function Img(){
+  var par1 = document.getElementById("ImgMod").value
+  var par2 = document.getElementById("otherMod").value
+  var par3 = " on "
+  var par4 = document.getElementById("ImgDate").value
+  var par5 = " showed "
+  var par6 = document.getElementById("ImgResult").value
+  var par7 = par1+par2+par3+par4+par5+par6
+  display.value+=par7
 }
 function ThisTime(){
   var par1 = "This time, "
@@ -596,10 +847,10 @@ function CXRRoutine(){
   display.value += par5
 }
 function DeathDNRRoutine(){
-    var par1 = "I was called at due to pulselessness. DNR status was confirmed.\n\n Upon arrival, the patient was not responsive, had no heart beat nor spontaneous breathing. Bilateral pupils showed no light reflex. EKG showed asystole. The patient expired on "
+    var par1 = "I was called due to pulselessness. DNR status was confirmed.\n\nUpon arrival, the patient was not responsive, had no heart beat nor spontaneous breathing. Bilateral pupils showed no light reflex. EKG showed asystole. The patient expired on "
     var par2 = document.getElementById("DateDeathDNR").value
     var par3 = ". "
-    var par4 = par1+par2+par3+par4
+    var par4 = par1+par2+par3
     display.value += par4
 }
 function ExtubationRoutine(){
@@ -609,7 +860,7 @@ function ExtubationRoutine(){
     var par4 = document.getElementById("M").value
     var par5 = "VT. Weaning parameters were acceptable. The patient was extubated smoothly on "
     var par6 = document.getElementById("DateEXT").value
-    var par7 = ".\n\n After extubation, no stridor nor wheezing were noted. The patient’s saturation level was 100%."
+    var par7 = ".\n\nAfter extubation, no stridor nor wheezing were noted. The patient’s saturation level was 100%."
     var par8 = par1+par2+par3+par4+par5+par6+par7
     display.value += par8
 }
